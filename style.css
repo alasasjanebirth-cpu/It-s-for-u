@@ -1,0 +1,84 @@
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+  font-family: "Great Vibes", cursive;
+}
+
+
+p {
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 30px;
+	font-weight: normal;
+	color: #fff;
+	height: auto;
+	text-shadow: 0 0 2px rgba(0,0,0,0.5);
+	z-index: 5;
+	text-align: center;
+}
+
+p span {
+	font-size: 18px;
+	display: block;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: normal;
+}
+
+.birthday-background {
+	position: relative;
+	overflow: hidden;
+  background: linear-gradient(to top right, #ffe4f1, #ffc2d9, #f7a8c8);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
+  color: #fff;
+}
+
+.birthday-image {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid rgba(255,255,255,0.7);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pic-1 {
+  top: 8%;
+  left: 8%;
+  transform: rotate(-12deg);
+}
+
+.pic-2 {
+  top: 10%;
+  right: 10%;
+  transform: rotate(12deg);
+}
+
+.pic-3 {
+  bottom: 15%;
+  left: 12%;
+  transform: rotate(10deg);
+}
+
+.pic-4 {
+  bottom: 12%;
+  right: 12%;
+  transform: rotate(-10deg);
+}

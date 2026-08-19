@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="birthday-background">
+  <div class="container">
+    <canvas id=c></canvas>
+    <p>To Jewel <span>By Janebirth</span></p>
+    <audio id="bgMusic"></audio>
+
+    <img src="Imahe/474fd923b4bd429a7a31818548b57a4e.jpg" alt="Happy Birthday" class="birthday-image pic-1">
+    <img src="Imahe/OIP.webp" alt="Happy Birthday" class="birthday-image pic-2">
+    <img src="Imahe/th.webp" alt="Happy Birthday" class="birthday-image pic-3">
+    <img src="Imahe/Happy-Birthday-Dog-meme.jpg" alt="Happy Birthday" class="birthday-image pic-4">
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    const soundFiles = [
+      "BirthdaySong/happy-birthday-sound-of-hard-samsung.mp3",
+      "BirthdaySong/happy-birthday-to-yee.mp3",
+      "BirthdaySong/happy-birthday-bill-cosby.mp3"
+    ];
+
+    let index = 0;
+    const audio = document.getElementById("bgMusic");
+
+    function playNext() {
+      if (index >= soundFiles.length) {
+        index = 0;
+      }
+
+      audio.src = soundFiles[index];
+      audio.load();
+      const playPromise = audio.play();
+
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(function () {
+          document.body.addEventListener("click", function startAudio() {
+            if (audio.paused) {
+              playNext();
+            }
+            document.body.removeEventListener("click", startAudio);
+          }, { once: true });
+        });
+      }
+
+      index++;
+    }
+
+    audio.addEventListener("ended", playNext);
+
+    window.addEventListener("load", function () {
+      playNext();
+    });
+  </script>
+</body>
+</html>
